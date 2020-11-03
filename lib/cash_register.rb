@@ -18,13 +18,15 @@ class CashRegister
             return "There is no discount to apply."
         end
         
-        self.total = self.total - (self.total*(self.discount/100))
+        self.total = (self.total - (self.total*(self.discount/100))).to_i
         return "After the discount, the total comes to $#{self.total}."
     end
 
     def items
-        #self.items 
+        self.items 
     end
 
-
+    def void_last_transaction
+        li = self.item.pop
+        total -= li 
 end
